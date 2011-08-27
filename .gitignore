@@ -1,0 +1,11 @@
+*.pyc
+*.swp
+*.DS_Store
+
+src/autoload
+src/dbindexer
+src/django
+src/djangoappengine
+src/djangotoolbox
+
+lib/
