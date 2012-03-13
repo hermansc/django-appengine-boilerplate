@@ -3,48 +3,39 @@
 # You have to be in the root project folder for this to work properly
 
 echo "Changing dir to src/..."
-cd src/
+mkdir lib/
+mkdir src/django/ src/djangotoolbox/ src/autoload/ src/dbindexer/ src/djangoappengine/
+cd lib/
 
 echo "Downloading and unzipping django-nonrel..."
-curl -s -2 -O https://bitbucket.org/wkornewald/django-nonrel/get/tip.zip
-unzip -q tip.zip
-mv wkornewald-django-nonrel-tip/ django-nonrel/
-rm tip.zip
+git clone -q https://github.com/django-nonrel/django-nonrel.git
 
 echo "Downloading and unzipping djangoappengine..."
-curl -s -2 -O https://bitbucket.org/wkornewald/djangoappengine/get/tip.zip
-unzip -q tip.zip
-mv wkornewald-djangoappengine-tip/ djangoappengine/
-rm tip.zip
+git clone -q https://github.com/django-nonrel/djangoappengine.git
 
 echo "Downloading and unzipping djangotoolbox..."
-curl -s -2 -O https://bitbucket.org/wkornewald/djangotoolbox/get/tip.zip
-unzip -q tip.zip
-mv wkornewald-djangotoolbox-tip/ django-toolbox/
+git clone -q https://github.com/django-nonrel/djangotoolbox.git
 
 echo "Downloading and unzipping django-autoload..."
-curl -s -2 -O https://bitbucket.org/twanschik/django-autoload/get/tip.zip
-unzip -q tip.zip
-mv twanschik-django-autoload-tip/ django-autoload/
+git clone -q https://github.com/adieu/django-autoload.git
 
 echo "Downloading and unzipping django-dbindexer..."
-curl -s -2 -O https://bitbucket.org/wkornewald/django-dbindexer/get/tip.zip
-unzip -q tip.zip
-mv wkornewald-django-dbindexer-tip/ django-dbindexer/
-rm tip.zip
+git clone -q https://github.com/adieu/django-dbindexer.git
 
 echo "Moving files around..."
-mkdir django/ autoload/ dbindexer/ djangotoolbox/ ../lib/ ../lib/djangoappengine/
-cp -R django-nonrel/django/* django/
-cp -R django-toolbox/djangotoolbox/* djangotoolbox/
-cp -R django-autoload/autoload/* autoload/
-cp -R django-dbindexer/dbindexer/* dbindexer/
+cp -R django-nonrel/django/* ../src/django/
+cp -R djangotoolbox/djangotoolbox/* ../src/djangotoolbox/
+cp -R django-autoload/autoload/* ../src/autoload/
+cp -R django-dbindexer/dbindexer/* ../src/dbindexer/
+cp -R djangoappengine/* ../src/djangoappengine/
 
-mv django-nonrel/ ../lib/
-mv django-autoload/ ../lib/
-cp -R djangoappengine/* ../lib/djangoappengine/ #just cp, since appengine does not have module inside
-mv django-toolbox/ ../lib/
-mv django-dbindexer/ ../lib/
+echo "Cleaning the src/ folder"
+cd ../src/
+rm -rf djangoappengine/.git*
+rm -rf djangotoolbox/.git*
+rm -rf django-autoload/.git*
+rm -rf django-dbindexer/.git*
+rm -rf django-nonrel/.git*
 
 echo "Files in the src/ folder: "
 find . -type f |wc -l
