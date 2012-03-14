@@ -31,11 +31,11 @@ cp -R djangoappengine/* ../src/djangoappengine/
 
 echo "Cleaning the src/ folder"
 cd ../src/
-rm -rf djangoappengine/.git*
+rm -rf django-nonrel/.git*
+rm -rf djangoappengine/.git* djangoappengine/docs/
 rm -rf djangotoolbox/.git*
 rm -rf django-autoload/.git*
 rm -rf django-dbindexer/.git*
-rm -rf django-nonrel/.git*
 
 echo "Files in the src/ folder: "
 find . -type f |wc -l

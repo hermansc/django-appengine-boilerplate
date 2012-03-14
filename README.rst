@@ -22,7 +22,7 @@ Quick-start
 Deployment
 ==========
 
-When deploying you should only deploy the src/ folder, which should contain ~2000 files. 
+When deploying you should only deploy the src/ folder, which should contain ~3000 files. 
 
 What does it do?
 ================
