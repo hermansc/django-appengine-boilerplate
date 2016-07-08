@@ -3,7 +3,7 @@ Quick-start
 
 1. Clone the repo::
 
-        git clone git@github.com:lordlarm/django-appengine-boilerplate.git
+        git clone git@github.com:hermansc/django-appengine-boilerplate.git
 
 2. cd to newly downladed files::
 
